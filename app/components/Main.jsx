@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 import { FaMicrophone } from 'react-icons/fa';
 
-const Main = ({ setFile, setAudioStrem }) => {
+const Main = ({ setFile, setAudioStream }) => {
   const [recordingStatus, setRecordingStatus] = useState('inactive');
   const [audioChunks, setAudioChunks] = useState([]);
   const [duration, setDuration] = useState(0);
@@ -47,32 +47,32 @@ const Main = ({ setFile, setAudioStrem }) => {
     setAudioChunks(localAudioChunks);
   };
 
-  //   const stopRecording = async () => {
-  //     setRecordingStatus('inactive');
-  //     console.log('Stop Recording');
-
-  //     mediaRecorder.current.stop();
-  //     mediaRecorder.current.onstop = () => {
-  //       const audioBlob = new Blob(audioChunks, { type: mimeType });
-  //       setAudioStrem(audioBlob);
-  //       setAudioChunks([]);
-  //       setDuration(0);
-  //     };
-  //   };
-
   const stopRecording = async () => {
-    try {
-      if (mediaRecorder.current) {
-        setRecordingStatus('inactive');
-        console.log('Stop Recording');
-        mediaRecorder.current.stop();
-      } else {
-        console.error('mediaRecorder.current is null or undefined.');
-      }
-    } catch (error) {
-      console.error('Error in stopRecording:', error);
-    }
+    setRecordingStatus('inactive');
+    console.log('Stop Recording');
+
+    mediaRecorder.current.stop();
+    mediaRecorder.current.onstop = () => {
+      const audioBlob = new Blob(audioChunks, { type: mimeType });
+      setAudioStream(audioBlob);
+      setAudioChunks([]);
+      setDuration(0);
+    };
   };
+
+  //   const stopRecording = async () => {
+  //     try {
+  //       if (mediaRecorder.current) {
+  //         setRecordingStatus('inactive');
+  //         console.log('Stop Recording');
+  //         mediaRecorder.current.stop();
+  //       } else {
+  //         console.error('mediaRecorder.current is null or undefined.');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error in stopRecording:', error);
+  //     }
+  //   };
 
   useEffect(() => {
     if (recordingStatus === 'inactive') return;

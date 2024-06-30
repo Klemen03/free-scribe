@@ -2,6 +2,7 @@ import React from 'react';
 import { FaPenNib } from 'react-icons/fa';
 
 const FileDisplay = ({ handleAudioReset, file, audioStream }) => {
+  console.log(audioStream);
   return (
     <main className="flex-1 text-center flex flex-col gap-3 sm:gap-4 md:gap-5 justify-center p-4 pb-20 w-fit max-w-full mx-auto">
       <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
