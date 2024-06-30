@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import { FaMicrophone } from 'react-icons/fa';
 
-const Main = () => {
+const Main = ({ setFile, setAudioStrem }) => {
   return (
     <main className="flex-1 text-center flex flex-col gap-3 sm:gap-4 md:gap-5 justify-center p-4 pb-20">
       <Logo />
@@ -25,12 +25,16 @@ const Main = () => {
             className="hidden"
             id="uploadfile"
             type="file"
-            accept=".mp3, .wave"
+            accept=".mp3, .wave, .png"
+            onChange={(e) => {
+              const tempFile = e.target.files[0];
+              setFile(tempFile);
+            }}
           />
         </label>
         a mp3 file
       </p>
-      <p className="italic text-base text-slate-500">Free now free forever</p>
+      <p className="italic text-base text-slate-400">Free now free forever</p>
     </main>
   );
 };
