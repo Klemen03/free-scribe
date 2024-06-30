@@ -10,7 +10,7 @@ const Header = () => {
           <span className="text-blue-500 font-bold">Scribe</span>
         </h1>
       </div>
-      <button className="flex items-center gap-2">
+      <button className="flex items-center gap-2 specialBtn px-4 py-2 rounded-lg text-blue-500">
         <p>New</p>
         <FaPlus />
       </button>
