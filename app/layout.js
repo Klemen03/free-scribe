@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`bg-gradient-to-r from-blue-50 to-blue-200 text-slate-700 text-sm sm:text-base ${opensans.className} `}
+        className={`bg-gradient-to-r from-blue-50 to-blue-200 text-slate-700 text-sm sm:text-xl ${opensans.className} `}
       >
         {children}
       </body>
