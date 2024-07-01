@@ -10,8 +10,8 @@ import Transcribing from './components/Transcribing';
 export default function Home() {
   const [file, setFile] = useState(null);
   const [audioStream, setAudioStream] = useState(null);
-  const [output, setOutput] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [output, setOutput] = useState(true);
+  const [loading, setLoading] = useState();
 
   const isAudioAvailable = file || audioStream;
 
