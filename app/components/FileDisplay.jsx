@@ -8,7 +8,7 @@ const FileDisplay = ({ handleAudioReset, file, audioStream }) => {
       <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
         Your <span className="text-blue-500 bold">File</span>
       </h1>
-      <div className="mx-auto flex flex-col text-left my-4">
+      <div className=" flex flex-col text-left my-4">
         <h3 className="font-semibold">Name</h3>
         <p>{file ? file?.name : 'Custom file'}</p>
       </div>

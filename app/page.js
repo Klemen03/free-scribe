@@ -4,10 +4,14 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import FileDisplay from './components/FileDisplay';
+import Information from './components/Information';
+import Transcribing from './components/Transcribing';
 
 export default function Home() {
   const [file, setFile] = useState(null);
   const [audioStream, setAudioStream] = useState(null);
+  const [output, setOutput] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const isAudioAvailable = file || audioStream;
 
@@ -20,7 +24,11 @@ export default function Home() {
     <div className="flex flex-col max-w-5xl mx-auto w-full">
       <section className="min-h-screen flex flex-col">
         <Header />
-        {isAudioAvailable ? (
+        {output ? (
+          <Information />
+        ) : loading ? (
+          <Transcribing />
+        ) : isAudioAvailable ? (
           <FileDisplay
             file={file}
             audioStream={audioStream}
@@ -29,6 +37,7 @@ export default function Home() {
         ) : (
           <Main setFile={setFile} setAudioStream={setAudioStream} />
         )}
+
         <footer></footer>
       </section>
     </div>
